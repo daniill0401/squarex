@@ -1,0 +1,5 @@
+mixin svg(file, cls)
+	- var xml = fs.readFileSync(file)
+	if !cls
+		- var cls = ""
+	div(class=cls)&attributes(attributes)!=xml

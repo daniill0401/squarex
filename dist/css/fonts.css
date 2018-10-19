@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "CoreSansG";
+  font-style: normal;
+  src: url("fonts/CoreSansG-ExtraLight.ttf") format("truetype");
+  font-weight: 400; }
+
+@font-face {
+  font-family: "ElegantIcons";
+  src: url("fonts/ElegantIcons.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "TTNorms";
+  font-style: normal;
+  src: url("fonts/TTNorms-Thin.eot") format("embedded-opentype"), url("fonts/TTNorms-Thin.woff") format("woff"), url("fonts/TTNorms-Thin.otf") format("opentype");
+  font-weight: 300; }
+
+@font-face {
+  font-family: "TTNorms";
+  font-style: normal;
+  src: url("fonts/TTNorms-Light.eot") format("embedded-opentype"), url("fonts/TTNorms-Light.woff") format("woff"), url("fonts/TTNorms-Light.otf") format("opentype");
+  font-weight: 400; }
+
+@font-face {
+  font-family: "TTNorms";
+  font-style: normal;
+  src: url("fonts/TTNorms-Regular.eot") format("embedded-opentype"), url("fonts/TTNorms-Regular.woff") format("woff"), url("fonts/TTNorms-Regular.otf") format("opentype");
+  font-weight: 500; }
+
+@font-face {
+  font-family: "TTNorms";
+  font-style: normal;
+  src: url("fonts/TTNorms-Medium.eot") format("embedded-opentype"), url("fonts/TTNorms-Medium.woff") format("woff"), url("fonts/TTNorms-Medium.otf") format("opentype");
+  font-weight: 600; }
+
+@font-face {
+  font-family: "TTNorms";
+  font-style: normal;
+  src: url("fonts/TTNorms-Bold.eot") format("embedded-opentype"), url("fonts/TTNorms-Bold.woff") format("woff"), url("fonts/TTNorms-Bold.otf") format("opentype");
+  font-weight: 700; }
+
+@font-face {
+  font-family: "UniversLTStd";
+  font-style: normal;
+  src: url("fonts/UniversLTStd-BoldEx.woff") format("woff"), url("fonts/UniversLTStd-BoldEx.otf") format("opentype");
+  font-weight: 600; }
+
+@font-face {
+  font-family: "UniversLTStd";
+  font-style: normal;
+  src: url("fonts/UniversLTStd-Light.woff") format("woff"), url("fonts/UniversLTStd-Light.otf") format("opentype");
+  font-weight: 400; }
+
+@font-face {
+  font-family: "UniversLTStd";
+  font-style: normal;
+  src: url("fonts/UniversLTStd-XBlack.woff") format("woff"), url("fonts/UniversLTStd-XBlack.otf") format("opentype");
+  font-weight: 700; }
+
+@font-face {
+  font-family: "Myriad";
+  font-style: normal;
+  src: url("fonts/MyriadPro-Regular.ttf") format("truetype"), url("fonts/MyriadPro-Regular.eot") format("embedded-opentype"), url("fonts/MyriadPro-Regular.woff") format("woff");
+  font-weight: 500; }
+
+@font-face {
+  font-family: "Myriad";
+  font-style: normal;
+  src: url("fonts/MyriadPro-SemiboldCond.ttf") format("truetype"), url("fonts/MyriadPro-SemiboldCond.eot") format("embedded-opentype"), url("fonts/MyriadPro-SemiboldCond.woff") format("woff");
+  font-weight: 600; }
+
+.tt-t {
+  font-family: "TTNorms";
+  font-weight: 300; }
+
+.tt-l {
+  font-family: "TTNorms";
+  font-weight: 400; }
+
+.tt-r {
+  font-family: "TTNorms";
+  font-weight: 500; }
+
+.tt-m {
+  font-family: "TTNorms";
+  font-weight: 600; }
+
+.tt-b {
+  font-family: "TTNorms";
+  font-weight: 700; }
+
+.uni-b {
+  font-family: "UniversLTStd";
+  font-weight: 600; }
+
+.uni-l {
+  font-family: "UniversLTStd";
+  font-weight: 400; }
+
+.uni-xb {
+  font-family: "UniversLTStd";
+  font-weight: 700; }
+
+.eleg-icons {
+  font-family: "ElegantIcons"; }
+
+.coresans-el {
+  font-family: "CoreSansG";
+  font-weight: 400; }
+
+.myr-r {
+  font-family: "Myriad";
+  font-weight: 500; }
+
+.myr-sb {
+  font-family: "Myriad";
+  font-weight: 600; }

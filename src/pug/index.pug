@@ -1,0 +1,302 @@
+include mixins
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		title="Squarex site"
+		link(rel="shortcut icon" type="image/png" href="img/favicon.png")
+		link(rel="icon" type="image/png" href="img/favicon.png")
+		link(rel="stylesheet", type="text/css", href="css/animate.min.css")
+		link(rel="stylesheet", type="text/css", href="https://use.fontawesome.com/releases/v5.2.0/css/all.css")
+		link(rel="stylesheet", type="text/css", href="css/main.css")
+		.
+			<style>
+				.loader {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					position: fixed;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background-color: white;
+					background: linear-gradient(to left bottom, #fff, #aaa); 
+					transition: all ease-in-out .3s;
+					z-index: 1000000; }
+				.loader__img {
+					width: 5em; }
+			</style>
+			<script>
+				window.onload = function() {
+					var loader = document.querySelector(".loader");
+					loader.style.opacity = "0";
+					loader.style.display = "none";
+				}
+			</script>
+	body
+		.loader
+			img.loader__img(src="img/loader.gif")
+
+		section.first.section(style="background-image: url(img/headerbg.png)")
+			.inner
+				.top
+					.top__left
+						.logo-wrap
+							+svg("src/svg/logo.svg")(class="logo")
+							p.tt-l.logo-desc="crowdbuilding platform"
+						.
+							<svg class="menu__svg" viewBox="0 0 50 40">
+								<g class="menu_svg-top">
+									<path d="M0,5 l50,0"></path>
+								</g>
+								<g class="menu_svg-middle">
+									<path d="M0,20 l50,0"></path>
+								</g>
+								<g class="menu_svg-bottom">
+									<path d="M0,35 l50,0"></path>
+								</g>
+							</svg>
+					+svg("src/svg/logo_sq.svg")(class="logo-sq")
+					.menu.top__middle
+						+svg("dist/img/cross.svg")(class="cross")
+						- var menu = [["whitepaper", "https://docs.google.com/document/d/1_L_W0vMlI_TLqUaajVuV7eVLkJDC9lQrh4FLlMkFx5I/edit"], ["demo", "https://demo.squarex.io/"], ["core team", "#founders"], ["it team", "#team"], ["press", "#media"]]
+						each item in menu
+							a.menu__item.tt-b(href=item[1], target="_blank")!=item[0]
+					.social.top__right
+						- var socials = [["fa-facebook-f", "https://www.facebook.com/squarex.io/"], ["fa-twitter", "https://twitter.com/SquarexPlatform"], ["fa-instagram", "https://www.instagram.com/squarex_platform/"], ["fa-medium", "https://medium.com/squarex"], ["fa-youtube", "https://www.youtube.com/embed/Kkjnt0TdIR4"], ["fa-tumblr", "https://t.me/squarex_eng"]]
+						each social in socials
+							a.social__item(href=social[1], target="_blank")
+								i.fab(class=social[0])
+				.main
+					+svg("src/svg/logo_sq.svg")(class="logo-sq mobile_logo")
+					.text
+						h1.title.coresans-el="The future of building and trading property"
+						p.desc.uni-l!="Fund your real estate development with crypto capital.<br> Convert volatile crypto into tokenized real square meters.<br> Do it in transparent and legal way."
+						p.caption.tt-b="That's what Squarex is made for."
+
+		.video.inner(style="background-image: url(img/video_decor.svg)")
+			iframe.video__frame(data-src="https://www.youtube.com/embed/Kkjnt0TdIR4?enablejsapi=1", frameborder="0", allowfullscreen)
+			h2.title.tt-l.wow.fadeInUp(data-wow-delay="0s")!="WHAT <br>IS SQUAREX?"
+			p.caption.tt-b.wow.fadeInUp(data-wow-delay=".1s")="Play video"
+			+svg("dist/img/video_play.svg")(class="play wow fadeIn", data-wow-delay=".4s")
+			+svg("dist/img/video_triangle.svg")(class="triangle wow fadeIn", data-wow-delay=".6s")
+		p.button.tt-l.participate.wow.fadeIn(data-wow-delay="0s")="Participate"
+
+		section.second.section
+			.left(style="background-image: url(img/accelerator_bgdecor.svg)")
+				.left__inner
+					h2.title.tt-l.wow.fadeIn(data-wow-delay="0s")!="DECENTRALIZED <br>REAL ESTATE <br>ACCELERATOR"
+					p.caption.uni-l.wow.fadeIn(data-wow-delay=".1s")!="Squarex simplifies and accelerates the process of financing, <br>building and trading property, focusing on early <br>stage investments."
+			.right
+				- var blocks = [["dist/img/accelerator_bringing.svg", "BRINGING <br>THE LIQUIDITY", "Dividing property into small tradeable bits like square meter tokens unveils great investment potential: thousands of small players around the world now have their chance to enter the market."], ["dist/img/accelerator_accessing.svg", "ACCESSING<br>THE NEW CAPITAL", "Squarex allows crypto holders to instantly convert their crypto assets into tradeable square meters. It opens the new source of financing for traditional real estate industry."], ["dist/img/accelerator_squarex.svg", "SQUAREX <br>CREATES TRUST", "The platform is built on blockchain, governed by community and uses modern digital tools to provide transparency and optimize the process of developing and trading property."]]
+				each block, index in blocks
+					.block.wow.fadeIn(data-wow-delay=index*.2+"s")
+						+svg("dist/img/cross.svg")(class="cross")
+						.block__inner
+							.block__left
+								+svg(block[0])(class="icon")
+							.block__right
+								h3.tt-l!=block[1]
+								p.uni-l.caption!=block[2]
+		secion.build
+			.inner
+				.left
+					h2.title.tt-l.wow.fadeIn(data-wow-delay="0s")!="PEOPLE BUILD, <br>PEOPLE SUPPORT"
+					p.desc.uni-l.wow.fadeIn(data-wow-delay=".2s")!="Squarex is being built as a decentralized autonomous organization (DAO). Its platform implements smart contracts to connect all parties together in the most transparent, safe and automatic way.<br><br>Squarex allows people around the world to deal instantly without contacting, knowing each other and without trusting the third party. We create global P2P property development and trading network based on rules, not the rulers."
+				.right
+					.cells
+						- var cells = ["CRYPTO INVESTORS", "", "PROPERTY BUYERS", "TOKEN EXCHANGE", "MARKET PLACE", "EXPERT COMMUNITY", "FOUNDERS", "", "ACCREDITED CONTRACTORS"]
+						each cell, index in cells
+							.cell.wow.fadeIn(data-wow-delay=index*.2+"s", class="cell-"+(index+1))
+								p.uni-b=cell
+					.bottom
+						p.uni-b.wow.fadeIn(data-wow-delay=cells.length*.2+"s")="SOFTWARE"
+						.line.wow.fadeIn(data-wow-delay=cells.length*.2+"s")
+						p.uni-b.wow.fadeIn(data-wow-delay=cells.length*.2+.2+"s")="METHODOLOGY"
+						.line.wow.fadeIn(data-wow-delay=cells.length*.2+.2+"s")
+						p.uni-b.wow.fadeIn(data-wow-delay=cells.length*.2+.4+"s")="ORACLES"
+
+		section.sides
+			.inner
+				h2.title.tt-l.wow.fadeIn(data-wow-delay="0s")="FOUR SIDES OF SQUAREX"
+				.blocks
+					- var blocks = [["For crypto investors", "SAFE<br> & PROFITABLE HAVEN FOR VOLATILE CRYPTO", "Convert volatile crypto assets into stable yet profitable tokenized square meters. Exchange anytime."], ["For property developers", "ACCESSIBLE CROWDFUNDING FOR SMALL DEVELOPERS", "Fund early-stage development with global crypto capital. Gain your reputation to get more."], ["For professional contractors", "JOBS AND FAIR BIDDINGS FOR TRUSTED CONTRACTORS", "Join our accredited professionals network and get more fair contracts with the growth of your reputation."], ["For property buyers", "BETTER PRICE<br> AND QUALITY<br> FOR PROPERTY BUYERS", "Automation, transparency and instant community feedback turn into beautiful property at good price."]]
+					each block, index in blocks
+						.block.wow.fadeIn(data-wow-delay=index*.2+"s", class="block-"+(index+1))
+							span.number.tt-t=index+1
+							p.top.uni-l=block[0]
+							p.middle.tt-l
+								span!=block[1]
+								img(src="img/logo_sq.svg")
+							p.bottom.uni-l=block[2]
+
+		section.advantages
+			h2.title.tt-l.wow.fadeIn(data-wow-delay="0s")!="BLOCKCHAIN ADVANTAGES<br> IN USE"
+			- var blocks = [["img/advantages_1.svg", "SAFETY <br>& TRANSPARENCY", ["trustless decentralized network for online value transferring", "supply chain control and optimization", "reputation management"]], ["img/advantages_2.svg", "SMART <br>CONTRACTS", ["automatic execution based on transparent immutable rules", "use of smart sensors and IoT oracles to digitize the development cycle"]], ["img/advantages_3.svg", "TOKENIZATION", ["liquidity for traditionally illiquid assets", "access for mass of small investors to previously closed industry", "colored token for every project"]], ["img/advantages_4.svg", "DECENTRALIZED <br>GOVERNANCE", ["genuine P2P network with no central management or control", "decentralized expert community", "no intermediaries"]]]
+			.inner.blocks
+				each block, index in blocks
+					.block.wow.fadeIn(data-wow-delay=index*.2+"s", class="block-"+(index+1))
+						img(src=block[0])
+						p.top.tt-l!=block[1]
+						ul
+							each li in block[2]
+								li.tt-l=li
+
+		section.cycle
+			h2.title.tt-l.wow.fadeIn(data-wow-delay="0s")!="ECOSYSTEM FOR COMPLETE<br> DEVELOPMENT CYCLE"
+			.slider.inner.wow.fadeIn(data-wow-delay=".3s")
+				.left
+					.left-inner(style="background-image: url(../img/usbank.jpg)")
+				.right
+					- var datas = [["FINANCING", ["CRYPTO INVESTORS", "PROPERTY DEVELOPERS", "P2P INVESTMENT <br>MARKETPLACE"]], ["BUILDING", ["METHODOLOGY LICENCED<br> SOFTWARE ORACLES", "ACCREDITED CONTRACTORS", "EXPERT COMMUNITY"]], ["TRADING", ["P2P PROPERTY<br> MARKETPLACE", "SQUARE EXCHANGE", "PROPERTY BUYERS"]]]
+					.main
+						each data, index in datas
+							- var active = ""
+							if index == 0
+								- var active = "active"
+							.main__block(class=active)
+								.numbers
+									span.numbers-left.myr-r=index+1
+									span.numbers-middle.myr-sb="of"
+									span.numbers-right.myr-r=datas.length
+								p.name.tt-l=data[0]
+								- var lis = data[1]
+								ul
+									each li in lis
+										li.tt-m!=li
+					.dots
+						each data, index in datas
+							- var active = ""
+							if index == 0
+								- var active = "active"
+							.dot(class=active, data-index=index)
+					.arrows
+						+svg("dist/img/arrow-left.svg")(class="arrow arrows-left", data-where="-1")
+						+svg("dist/img/arrow-right.svg")(class="arrow arrows-right", data-where="1")
+			.band
+				.band-inner
+					- var blocks = [["5", "DEVELOPERS"], ["15<span class='cross'>+</span>", "YEARS <br>OF EXPERIENCE<br>IN IT & FINTECH"], ["<span>2</span><span class='star'>☆</span>", "WINNERS OF EUROPEAN <br>BLOKCHAIN HACKATON <br>JUNCTION 2016"]]
+					each block, index in blocks
+						.block.wow.fadeIn(data-wow-delay=index*.2+"s")
+							.block-inner
+								p.top.tt-l!=block[0]
+								p.bottom.tt-m!=block[1]
+
+		section.founders#founders
+			h1.title.tt-l.wow.fadeIn(data-wow-delay="0s")="CORE TEAM"
+			//- - var blocks = [["KIRILL<br> KOTILEVSKY", "FOUNDER, CEO", "A professional in private and public equity, specializing in property securitization and construction. He acted as a consultant for major construction companies: LSP Group, GK-MIC, Kivennapa. Member of International Blockchain Real Estate Association (IBREA)", "img/face_1.jpg"], ["IGOR<br> VASILYEV", "FOUNDER, CTO", "12 years of experience in IT industry. Team-leader in the development of software systems in Media-Saturn Russia. Blockchain enthusiast. He has successfully developed and launched more than 10 IT solutions working 24 to 7 in online retailers since 2011. Winner of the European hackathon Junction 2016 in fintech track.", "img/face_2.jpg"], ["MAXIM<br> LEVOSHIN", "FOUNDER, CBA", "Entrepreneur, mentor, investor. Chief Business Archangel at Fanaura Ventures, Ph.D. Computer science, MBA graduated. Former General Partnership Media Group & Denimax Telecom exec.", "img/face_3.jpg"], ["MAXIM<br> KRASNENKO", "CBDO", "17 years top-management in real estate development. Founder and former CEO Kivennapa Development, top Russian residential real estate development company. Developed and implemented an it-system of automation of business processes of real estate development at Kivennapa Development. As a result, under the management of Maxim, Kivennapa became the leader at residential real estate market in Russia in 2014. Realized 6 low-rise residential real estate complexes at 100 hectares with a population of 4.5 thousand people.", "img/face_4.jpg"], ["DMITRIY<br> KYLIKOV", "HEAD OF ANALYSIS DEPARTMENT", "10 years experience in system analysis, marketing research, estimation market math and finance modeling for feasibility studies and technical solution development. He worked in companies Rotec branch of the Company «Renova Management AG», CJSC ROTEC, Termomeccanica Group. He acted as organizer and participant in strategic and foresight sessions in companies Megafon, Sberbank, Rostec, X-5 Retail Group, Lanit GC, Skolkovo Fund, RANEPA, Innopolis.", "img/face_5.jpg"]]
+			//- - var blocks = [["KIRILL<br> KOTILEVSKY", "FOUNDER, CEO", "A professional in private and public equity, specializing in property securitization and construction. He acted as a consultant for major construction companies: LSP Group, GK-MIC, Kivennapa. Member of International Blockchain Real Estate Association (IBREA)", "img/face_1.jpg"], ["IGOR<br> VASILYEV", "FOUNDER, CTO", "12 years of experience in IT industry. Team-leader in the development of software systems in Media-Saturn Russia. Blockchain enthusiast. He has successfully developed and launched more than 10 IT solutions working 24 to 7 in online retailers since 2011. Winner of the European hackathon Junction 2016 in fintech track.", "img/face_2.jpg"], ["MAXIM<br> KRASNENKO", "CBDO", "17 years top-management in real estate development. Founder and former CEO Kivennapa Development, top Russian residential real estate development company. Developed and implemented an it-system of automation of business processes of real estate development at Kivennapa Development. As a result, under the management of Maxim, Kivennapa became the leader at residential real estate market in Russia in 2014. Realized 6 low-rise residential real estate complexes at 100 hectares with a population of 4.5 thousand people.", "img/face_4.jpg"], ["DMITRIY<br> KYLIKOV", "HEAD OF ANALYSIS DEPARTMENT", "10 years experience in system analysis, marketing research, estimation market math and finance modeling for feasibility studies and technical solution development. He worked in companies Rotec branch of the Company «Renova Management AG», CJSC ROTEC, Termomeccanica Group. He acted as organizer and participant in strategic and foresight sessions in companies Megafon, Sberbank, Rostec, X-5 Retail Group, Lanit GC, Skolkovo Fund, RANEPA, Innopolis.", "img/face_5.jpg"]]
+			- var blocks = [["KIRILL<br> KOTILEVSKY", "FOUNDER, CEO", "A professional in private and public equity, specializing in property securitization and construction. He acted as a consultant for major construction companies: LSP Group, GK-MIC, Kivennapa. Member of International Blockchain Real Estate Association (IBREA)", "img/face_1.jpg"], ["IGOR<br> VASILYEV", "CO-FOUNDER, CTO", "12 years of experience in IT industry. Team-leader in the development of software systems in Media-Saturn Russia. Blockchain enthusiast. He has successfully developed and launched more than 10 IT solutions working 24 to 7 in online retailers since 2011. Winner of the European hackathon Junction 2016 in fintech track.", "img/face_2.jpg"], ["MAXIM<br> KRASNENKO", "CBDO", "17 years top-management in real estate development. Founder and former CEO Kivennapa Development, top Russian residential real estate development company. Developed and implemented an it-system of automation of business processes of real estate development at Kivennapa Development. As a result, under the management of Maxim, Kivennapa became the leader at residential real estate market in Russia in 2014. Realized 6 low-rise residential real estate complexes at 100 hectares with a population of 4.5 thousand people.", "img/face_4.jpg"]]
+
+			.blocks
+				.inner.line
+					each block, index in blocks
+						.block.wow.fadeIn(data-wow-delay=index*.2+"s")
+							h2.name.tt-l!=block[0]
+							h3.position.tt-m=block[1]
+							img.face(src=block[3])
+							p.desc.uni-l=block[2]
+
+		section.team#team
+			h1.title.tt-l.wow.fadeIn(data-wow-delay="0s")="IT TEAM"
+			- var slider = [["BACKEND/BLOCKCHAIN<br>DEVELOPER", [["img/team_timur.png", "TIMUR EVGAZHUKOV", "16+ years of IT development. 7+ years FinTech experience. Most of Timur's experience was in the development of highload web services for major banks (VTB24, Alfa-Bank and others) and government structures. Key skills: software development, object oriented programming, blockchain development, managing software development team while limited time and resources."], ["img/team_vitaly.png", "VITALIY SOROKIN", "10 years in IT development, participated in lots of blockchain and cryptocurrency related projects, Solidity &amp; HyperLedger smart contract developer, NodeJS pro, (no)SQL DB architect and more. The last project was profit.best cryptocurrency exchange and xdsoft blockchain platform - various blockchain prototypes for enterprise companies."]]], ["FULLSTACK DEVELOPER", [["img/team_daniil.png", "DANIIL ALEKSANDROV", " 10+ years software development for workflow automation and stock-exchange processing applying PHP, JS, React, React-Native, MongoDB, Mobile App. Experienced in managing development team using Agile, Scrum and Kanban."], ["img/team_vyacheslav.png", "VIACHESLAV GNETKOVSKIY", "Lead Software Engineer with 10+ years of experience in the development of highload web applications. Made dozens of successful web projects for Finninsh banks, Swedish Telecom provider and Russian investment bank. Been working as software consultant for such companies like: Microsoft and Johnson &amp; Johnson. Winner of the European hackathon Junction 2016."]]], ["DEVOPS ENGINEER", [["img/team_roman.png", "ROMAN NESTEROV", "12+ years experience of software development. 5 years experince of highload fail safe systems development. Key skills: software development, linux server maintanance, database maintanance. Tenchnologies: ubuntu, docker, node.js, squalize, mongoose, express, hapi, es6, angular, webpack. Latest projects - www.boombate.ru, www.veritamo.com"]]], ["ADVISORS", [["img/ryan.png", "RYAN PLAMMER", "Managing Director at Newmark Knight Frank. Ryan worked in companies Ten-X, Cushman &amp; Wakefield, California Republic Bank."], ["img/michael.png", "MICHAEL SHEINBERG", "One of the best attorneys in real estate industry in Los Angeles. Michael Scheinberg joined the firm in 1989 and is a partner in the firm’s real estate department. He practices focuses on commercial real estate transactions, including private equity, restructurings, development, loan origination and workouts, joint ventures, acquisitions and dispositions as well as leasing."]]]]
+			+svg("dist/img/cross.svg")(class="cross cross-top")
+			.inner.slider.wow.fadeIn(data-wow-delay=".2s")
+				.left
+					each topic, topic_index in slider
+						.topic.wow.fadeIn(data-wow-delay=topic_index*.2+"s", data-topic-index=topic_index)
+							span.tt-m!=topic[0]
+				.middle
+					.main
+						each topic, topic_index in slider
+							each item, item_index in topic[1]
+								.main__block(data-item-index=item_index, data-topic-index=topic_index)
+									p.name.tt-r!=item[1]
+									p.desc.uni-l!=item[2]
+					.dots
+						each topic, topic_index in slider
+							- var active = ""
+							if topic_index == 0
+								- var active = "active"
+							.dots__inner(data-topic-index=topic_index, class=active)
+								each item, item_index in topic[1]
+									.dot(data-topic-index=topic_index, data-item-index=item_index)
+					.arrows
+						+svg("dist/img/arrow-left.svg")(class="arrow arrows-left", data-where="-1")
+						+svg("dist/img/arrow-right.svg")(class="arrow arrows-right", data-where="1")
+				.right
+					each topic, topic_index in slider
+						each item, item_index in topic[1]
+							.right__inner(data-topic-index=topic_index, data-item-index=item_index)
+								img.photo(src=item[0])
+
+		section.media#media
+			h1.title.tt-l.wow.fadeIn(data-wow-delay="0s")="MEDIA"
+			+svg("dist/img/cross.svg")(class="cross cross-top")
+			- var news = [["NEWS", "AUGUST 05, 2018", "Join our accredited professionals<br> network and get more fair contracts with the growth of your reputation", "img/media_decor.svg", "http://www.forbes.ru/biznes/362699-sam-sebe-stroitel-kak-blokcheyn-vozrodit-zhilishchnye-kooperativy"], ["NEWS", "JUNE 25, 2018", "Squarex allows people around  the world to deal instantly without  contacting, and without trusting", "img/news2.jpg", "http://www.profile.ru/obsch/item/125803-sdelano-s-umom"], ["NEWS", "JUNE 30, 2018", "Squarex is being built as a decentralized<br> autonomous organization (DAO). Its platform implements smart contracts", "img/news_3.png", "https://archi.ru/news/79274/podpisano-soglashenie-o-sozdanii-pervoi-platformy-bim-reshenii-na-osnove-tekhnologii-blokchein"]]
+			//- - var news = [["NEWS", "AUGUST 05, 2018", "Join our accredited professionals<br> network and get more fair contracts with the growth of your reputation", "img/media_decor.svg"], ["NEWS", "JUNE 25, 2018", "Squarex allows people around  the world to deal instantly without  contacting, and without trusting", "img/news2.jpg"]]
+			.blocks
+				each block, index in news
+					a.block.wow.fadeIn(data-wow-delay="0s", class="block-"+(index+1), href=block[4], target="_blank")
+						.block__inner.inner
+							.left
+								.top
+									.top__left
+										span.tt-m=block[0]
+									.top__right
+										span.tt-m=block[1]
+								.middle
+									p.desc.tt-m!=block[2]
+								.bottom
+									p.tt-m="READ MORE"
+									+svg("dist/img/arrow-right.svg")(class="arrow arrows-right")
+							.right(style="background-image: url("+block[3]+")")
+			.controls
+				.inner
+					+svg("dist/img/arrow-left.svg")(class="arrow arrows-left", data-where="-1")
+					.pages
+						span.tt-m.active="1"
+						span.tt-m="2"
+					+svg("dist/img/arrow-right.svg")(class="arrow arrows-right", data-where="1")
+
+		section.logos
+			- var logos = [["img/logos/forbes.svg", "http://www.forbes.ru/biznes/362699-sam-sebe-stroitel-kak-blokcheyn-vozrodit-zhilishchnye-kooperativy"], ["img/logos/bitsmedia.svg", "https://bits.media/news/detsentralizovannaya-platforma-squarex-tokeniziruet-rynok-nedvizhimosti/"], ["img/logos/vcru.svg", "https://vc.ru/42401-kraudbilding-kak-postroit-sebe-zhile-na-blokcheyne"], ["img/logos/profile.svg", "http://www.profile.ru/obsch/item/125803-sdelano-s-umom"], ["img/logos/bitnovosti.png", "https://bitnovosti.com/2018/07/24/squarex-blokchain-platform-kraudbilding/"], ["img/logos/bitcrypto.svg", "https://bitcryptonews.ru/news/blockchain/na-russian-blockchain-week-predstavili-novyie-idei-dlya-razvitiya-biznesa"], ["img/logos/prime.png", "https://1prime.ru/articles/20180212/828444228.html"], ["img/logos/archi.png", "https://archi.ru/news/79274/podpisano-soglashenie-o-sozdanii-pervoi-platformy-bim-reshenii-na-osnove-tekhnologii-blokchein"], ["img/logos/stroiexpert.png", "https://ardexpert.ru/article/12833?_utl_t=fb"], ["img/logos/nano.png", "https://www.youtube.com/watch?v=lHORyK2pek0&feature=youtu.be"]]
+			.inner
+				each logo, index in logos
+					a.wow.fadeIn(data-wow-delay=index*.2+"s", href=logo[1], target="_blank")
+						img(src=logo[0])
+
+		footer.footer
+			.inner
+				.left
+					img.logo(src="img/logo_sq_footer.svg")
+				form.middle(action="javascript:void")
+					h2.title.uni-b="STAY IN TOUCH"
+					.mail
+						.mail__left.uni-b="email"
+						input.mail__right.uni-b(name="mail", value="your@email.com", data-value="your@email.com", data-success="Your application has been accepted")
+					p.title.subscribe.uni-b="subscribe"
+				.right
+					h2.title.uni-b="follow us"
+					.social
+						- var socials = [["fa-facebook-f", "https://www.facebook.com/squarex.io/"], ["fa-twitter", "https://twitter.com/SquarexPlatform"], ["fa-instagram", "https://www.instagram.com/squarex_platform/"], ["fa-medium", "https://medium.com/squarex"], ["fa-youtube", "https://www.youtube.com/embed/Kkjnt0TdIR4"], ["fa-tumblr", "https://t.me/squarex_eng"]]
+						each social in socials
+							a.social__item(href=social[1], target="_blank")
+								i.fab(class=social[0])
+					h2.title.uni-b.copy="© SQUAREX OÜ, REG. 14525812"
+
+		section.popup
+			form(action="javascript:void")
+				+svg("dist/img/cross.svg")(class="cross")
+				h1.tt-l.title="To join us fill the form"
+				input.mail.tt-l(name="mail", value="your@email.com", data-value="your@email.com", data-success="Your application has been accepted")
+				button.join.uni-b.button="Join"
+
+	script(src="js/wow.min.js")
+	script(src="js/bundle.js")
+	script.
+		new WOW().init();
+
+
+

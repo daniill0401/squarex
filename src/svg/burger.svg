@@ -1,0 +1,11 @@
+<svg class="menu__svg" viewBox="0 0 50 40">
+	<g class="menu_svg-top">
+		<path d="M0,5 l50,0"></path>
+	</g>
+	<g class="menu_svg-middle">
+		<path d="M0,20 l50,0"></path>
+	</g>
+	<g class="menu_svg-bottom">
+		<path d="M0,35 l50,0"></path>
+	</g>
+</svg>
